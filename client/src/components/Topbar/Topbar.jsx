@@ -1,11 +1,14 @@
 import "./Topbar.css";
 import {Search} from '@material-ui/icons';
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
     <div className='topbarContainer'>
       <div className="topbarLeft">
-        <span className="logo">Fakebook</span>
+        <Link to="/" style={{textDecoration: "none"}}>
+          <span className="logo">Fakebook</span>
+        </Link>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">

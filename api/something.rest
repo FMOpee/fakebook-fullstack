@@ -8,10 +8,11 @@ POST  http://localhost:4000/userRegistration
 Content-Type: application/json 
 
 {     
-    "firstName" : "Fahim",     
-    "lastName" : "Morshed",     
-    "email" : "kkkk@iit.du.ac.bd",     
-    "password" : "lololol"      
+    "firstName" : "Lutfar Alif",     
+    "lastName" : "",     
+    "email" : "alif",    
+    "profilePicture" : "https://github.com/FM-Man/fakebook-react/blob/master/public/assets/person/la.jpg?raw=true", 
+    "password" : "123456"      
 }
 
 ### login
@@ -46,8 +47,9 @@ Post http://localhost:4000/post/
 Content-Type: application/json
 
 {
-    "userID": "62d994fc5548be2051eec09d",
-    "content":"lololol"
+    "userID": "62dc92e9f25240da08eb3323",
+    "content":"hehe",
+    "likes" : 8
 }
 
 ### find all post
