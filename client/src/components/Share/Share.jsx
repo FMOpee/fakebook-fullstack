@@ -2,17 +2,28 @@ import "./Share.css";
 import {PermMedia, Label, EmojiEmotions} from "@material-ui/icons"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useRef } from "react";
 
 export default function Share() {
 
     const {user} = useContext(AuthContext);
+    const contentRef = useRef();
+
+    const onShare = (e) =>{
+        
+    }
 
     return (
         <div className="share">
-            <div className="shareWrapper">
+            <form className="shareWrapper" onSubmit={onShare}>
                 <div className="shareTop">
                     <img  className="shareDP" src={user.profilePicture} alt="dp"/>
-                    <input placeholder="We know whats in your mind muhahaha" className = "shareInput" />
+                    <input 
+                        placeholder="We know whats in your mind muhahaha" 
+                        className = "shareInput"
+                        required
+                        ref={contentRef} 
+                    />
                 </div>
                 <hr className="shareHR"/>
                 <div className="shareBottom">
@@ -30,9 +41,9 @@ export default function Share() {
                             <span className="shareOptionText">Feelings</span>
                         </div>
                     </div>
-                    <button className="shareButton">Share</button>
+                    <button className="shareButton" type="submit">Share</button>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
