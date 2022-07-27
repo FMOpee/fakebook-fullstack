@@ -8,11 +8,10 @@ export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
     
-    const {user, isFetching, error, dispatch} = useContext(AuthContext);
+    const {dispatch} = useContext(AuthContext);
 
     const handleClick = (e)=>{
         e.preventDefault();
-        console.log("clicked");
         const email = emailRef.current.value;
         const password =passwordRef.current.value;
         loginCalls({email:email,password:password},dispatch);
@@ -43,7 +42,6 @@ export default function Login() {
                         <button type="submit" className="loginButton">Login</button>
                         <button className="registerLink">Create a new account</button>
                     </form>
-                    
                 </div>
             </div>
         </div>

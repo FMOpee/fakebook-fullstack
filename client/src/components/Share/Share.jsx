@@ -3,14 +3,22 @@ import {PermMedia, Label, EmojiEmotions} from "@material-ui/icons"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useRef } from "react";
+import axios from "axios";
 
 export default function Share() {
 
     const {user} = useContext(AuthContext);
     const contentRef = useRef();
 
-    const onShare = (e) =>{
-        
+    const onShare = async (e) =>{
+        const content = contentRef.current.value;
+        try {
+            await axios.post("http://localhost:4000/post/",{userID:user._id, content:content}).then((res)=>{
+                console.log(res);
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

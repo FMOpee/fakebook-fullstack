@@ -8,11 +8,12 @@ import axios from 'axios';
 export default function Feed() {
   const [post, setpost] = useState([]);
   useEffect(()=>{
-    const res = axios.get("http://localhost:4000/post/").then((res)=>{
-      setpost(res.data);
+    axios.get("http://localhost:4000/post/").then((res)=>{
+      const temp = res.data;
+      temp.reverse();
+      setpost(temp);
     });
   },[post])
-
 
   return (
     <div className='feed'>
