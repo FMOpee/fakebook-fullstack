@@ -1,22 +1,51 @@
-import "./login.css"
+import "./login.css";
+import {useRef, useContext} from "react";
+import {loginCalls} from "../../apiCalls";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Login() {
-  return (
-    <div className="login">
-        <div className="loginWrapper">
-            <div className="loginLeft">
-                <h3 className="loginLogo">Fakebook</h3>
-                <span className="loginDesc">We're fake bro. Go back.</span>
-            </div>
-            <div className="loginRight">
-                <div className="loginBox">
-                    <input placeholder="Email" className="loginInput"/>
-                    <input placeholder="Password" className="loginInput"/>
-                    <button className="loginButton">Login</button>
-                    <button className="registerLink">Create a new account</button>
+    
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    
+    const {user, isFetching, error, dispatch} = useContext(AuthContext);
+
+    const handleClick = (e)=>{
+        e.preventDefault();
+        console.log("clicked");
+        const email = emailRef.current.value;
+        const password =passwordRef.current.value;
+        loginCalls({email:email,password:password},dispatch);
+    }
+
+    return (
+        <div className="login">
+            <div className="loginWrapper">
+                <div className="loginLeft">
+                    <h3 className="loginLogo">Fakebook</h3>
+                    <span className="loginDesc">We're fake bro. Go back.</span>
+                </div>
+                <div className="loginRight">
+                    <form className="loginBox" onSubmit={handleClick}>
+                        <input 
+                            placeholder="Email"
+                            required 
+                            className="loginInput" 
+                            ref={emailRef}
+                        />
+                        <input 
+                            placeholder="Password" 
+                            type="password" 
+                            required
+                            className="loginInput" 
+                            ref={passwordRef}
+                        />
+                        <button type="submit" className="loginButton">Login</button>
+                        <button className="registerLink">Create a new account</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }

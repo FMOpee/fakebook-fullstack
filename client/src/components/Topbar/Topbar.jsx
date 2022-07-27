@@ -1,8 +1,13 @@
 import "./Topbar.css";
 import {Search} from '@material-ui/icons';
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Topbar() {
+
+  const {user} = useContext(AuthContext);
+
   return (
     <div className='topbarContainer'>
       <div className="topbarLeft">
@@ -21,9 +26,9 @@ export default function Topbar() {
           <span className="topbarLink">Homepage</span>
           <span className="topbarLink">Profile</span>
         </div>
-        <span className="topbarLink">Fahim Morshed</span>
-        <img  src="https://github.com/FM-Man/fakebook-react/blob/master/public/assets/person/fm.jpg?raw=true" 
-              alt="fm" className="topbarImg"/>
+        <span className="topbarLink">{user.firstName}</span>
+        <img  src={user.profilePicture} 
+              alt="dp" className="topbarImg"/>
       </div>
     </div>
   )

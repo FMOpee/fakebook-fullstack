@@ -11,7 +11,6 @@ export default function Feed() {
     const res = axios.get("http://localhost:4000/post/").then((res)=>{
       setpost(res.data);
     });
-    console.log(post);
   },[post])
 
 
