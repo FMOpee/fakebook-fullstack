@@ -3,16 +3,17 @@ import {MoreVert, ThumbUpAlt} from "@material-ui/icons";
 // import { Users } from "../../data";
 import React, {useState, useEffect } from "react";
 import axios from "axios";
+import {format} from "timeago.js";
 
 export default function Post({post}) {
-    const [Like, setLike] = useState(post.like);
+    const [Like, setLike] = useState(post.likes);
     const [isLiked, setIsLiked] = useState(false);
     
     const [user, setuser] = useState({});
     useEffect(()=>{
-        const res = axios.get(`http://localhost:4000/userControl/${post.userID}`);
-        console.log(res);
-        setuser(res.data);
+        const res = axios.get(`http://localhost:4000/userControl/${post.userID}`).then((res)=>{
+            setuser(res.data);
+        });
     },[post.userID]);
 
 
@@ -30,7 +31,7 @@ export default function Post({post}) {
                     <span className="postUserName">
                         {user.firstName}
                     </span>
-                    <span className="postTime">10 minutes ago</span>
+                    <span className="postTime">{format(post.createdAt)}</span>
                 </div>
                 <div className="postTopRight">
                     <MoreVert/>

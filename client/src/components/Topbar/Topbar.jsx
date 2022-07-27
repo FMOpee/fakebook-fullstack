@@ -21,6 +21,7 @@ export default function Topbar() {
           <span className="topbarLink">Homepage</span>
           <span className="topbarLink">Profile</span>
         </div>
+        <span className="topbarLink">Fahim Morshed</span>
         <img  src="https://github.com/FM-Man/fakebook-react/blob/master/public/assets/person/fm.jpg?raw=true" 
               alt="fm" className="topbarImg"/>
       </div>

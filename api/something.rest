@@ -8,9 +8,9 @@ POST  http://localhost:4000/userRegistration
 Content-Type: application/json 
 
 {     
-    "firstName" : "Lutfar Alif",     
+    "firstName" : "Moumita Asad",     
     "lastName" : "",     
-    "email" : "alif",    
+    "email" : "moumita",    
     "profilePicture" : "https://github.com/FM-Man/fakebook-react/blob/master/public/assets/person/la.jpg?raw=true", 
     "password" : "123456"      
 }
@@ -21,8 +21,8 @@ POST  http://localhost:4000/login
 Content-Type: application/json 
 
 {     
-    "email" : "based1102@iit.du.ac.bd",     
-    "password" : "//Temujin007//"      
+    "email" : "moumita",     
+    "password" : "123456"      
 }
 
 
@@ -47,9 +47,9 @@ Post http://localhost:4000/post/
 Content-Type: application/json
 
 {
-    "userID": "62dc92e9f25240da08eb3323",
-    "content":"hehe",
-    "likes" : 8
+    "userID": "62dcb55e8e8b68904801974b",
+    "content":"lol",
+    "likes" : 6
 }
 
 ### find all post
