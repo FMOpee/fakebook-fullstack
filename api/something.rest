@@ -59,10 +59,10 @@ Content-Type: application/json
 
 ### 
 
-# PUT  http://localhost:4000/post/62db3cdd8ab896e6645282eb
+# PUT  http://localhost:4000/post/62e55ec5d4d435067b283692
 # Content-Type: application/json
 
 # {
-#     "userID" : "62d9961e7250dc3a4d4d0ec0"
+#     "userID" : "62dc9277f25240da08eb331a"
 # }
 

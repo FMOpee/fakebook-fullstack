@@ -2,6 +2,7 @@ import "./login.css";
 import {useRef, useContext} from "react";
 import {loginCalls} from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
+import {NavLink} from "react-router-dom";
 
 export default function Login() {
     
@@ -40,7 +41,9 @@ export default function Login() {
                             ref={passwordRef}
                         />
                         <button type="submit" className="loginButton">Login</button>
-                        <button className="registerLink">Create a new account</button>
+                        <NavLink className="registerLink" to="/register">
+                            <button className="registerLink">Create a new account</button>
+                        </NavLink>
                     </form>
                 </div>
             </div>

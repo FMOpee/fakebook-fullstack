@@ -25,30 +25,86 @@ router.get('/', (req, res) => {
 
 // //Like Post
 // router.put("/:id",async (req,res)=>{
-//     try {
-//         const post = Post.findById(req.params.id);
-//         console.log(req.params.id);
-//         console.log(post);
+//     let post = {};
+//     try{
+//         Post.findById(req.params.id, (err,docs)=>{
+//             if(err){
+//                 console.log(err);
+//             }
+//             else {
+//                 post = docs;
+//                 console.log(post.likeArray);
+//                 post.likeArray.push("62dc9277f25240da08eb331a");
+//                 console.log(post.likeArray);
 
 
+//                 try {
+//                     Post.replaceOne(
+//                         { _id: post._id },
+//                         { likeArray: post.likeArray }
+//                     );
+//                 } catch (error) {
+//                     console.log(error);
+//                 }
+                
 
-//         const {uid} = req.body;
 
-//         if(post.likes.includes(req.body.userID)){
-//             await post.updateOne({$pull:{likes: {uid}}});
-//             console.log("unliked");
-//             return res.status(200).send(post);
-
-//         }
-//         else{
-//             await post.updateOne({$push:{likes: {uid}}});
-//             console.log("liked");
-//             return res.status(200).send(post);
-//         }
-
-//     } catch (error) {
-//         return res.status(400).send(error);
+//                 res.status(200).send(docs);
+//             }
+//         });
 //     }
+//     catch(err){
+//         console.log(err);
+//     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//     // try {
+//     //     const post = Post.findOne({_id: req.params.id});
+//     //         console.log(req.params.id);
+//     //         console.log(res.data);
+//     //         const {userID} = req.body;
+//     //         console.log(userID);
+//     //         // if(res.data.likeArray.includes(userID)){
+//     //         //     console.log("unliked");
+//     //         // }
+//     //         // else{
+//     //         //     console.log("liked");
+//     //         // }
+        
+        
+
+
+
+//     //     // const {uid} = req.body;
+
+//     //     // if(post.likes.includes(req.body.userID)){
+//     //     //     await post.updateOne({$pull:{likes: {uid}}});
+//     //     //     console.log("unliked");
+//     //     //     return res.status(200).send(post);
+
+//     //     // }
+//     //     // else{
+//     //     //     await post.updateOne({$push:{likes: {uid}}});
+//     //     //     console.log("liked");
+//     //     //     return res.status(200).send(post);
+//     //     // }
+
+//     // } catch (error) {
+//     //     return res.status(400).send(error);
+//     // }
 // });
 
 
