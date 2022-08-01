@@ -11,6 +11,7 @@ export default function Share() {
     const contentRef = useRef();
 
     const onShare = async (e) =>{
+        e.preventDefault();
         const content = contentRef.current.value;
         try {
             await axios.post("http://localhost:4000/post/",{userID:user._id, content:content}).then((res)=>{
