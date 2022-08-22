@@ -17,9 +17,8 @@ router.get('/story',(req, res) => {
 router.post("/story", (req, res) => {
     try {
         new Story({
-            fullName: req.body.fullName,
-            id: req.body.id,
-            date: req.body.date,
+            uid: req.body.uid,
+            filename: req.body.filename
         }).save((err, doc) => {
             if(err) res.status(402).send({ message: "Error at saving story id data !!!", error: err});
             else res.status(200).send({ message: "Story id saved successfully ..." });
@@ -31,14 +30,14 @@ router.post("/story", (req, res) => {
 
 router.post("/image", upload.single('image'), (req, res) => {
     try { 
-        var filePath = process.env.IIT_PC_UPLOADS_DIR + req.file.path;
+        var filePath = "../../client/src/Files"+ req.file.path;
         var fileName = new Date().getTime().toString() + ".png";
         var metaData = {
             'Content-Type': 'application/octet-stream',
             'X-Amz-Meta-Testing': 1234,
             'example': 5678
         };
-        minioClient.fPutObject(process.env.MINIO_BUCKET, fileName, filePath, metaData, function(err, etag) {
+        minioClient.fPutObject("stories", fileName, filePath, metaData, function(err, etag) {
             if (err){ 
                 return res.status(402).send({ message: "Error at saving image data !!!", error: err});
             }
@@ -52,7 +51,7 @@ router.post("/image", upload.single('image'), (req, res) => {
 router.get("/image/:id", (req, res) => {
     try {
         let data;
-        minioClient.getObject(process.env.MINIO_BUCKET, req.params.id, (err, objStream) => {
+        minioClient.getObject("stories", req.params.id, (err, objStream) => {
             if(err) {
                 return res.status(404).send({ message: "Image not found" });
             }
@@ -75,7 +74,7 @@ router.post("/image/path", (req, res) => {
         var filePath = req.body.filePath;
         var metaData = req.body.metaData;
         var fileName = new Date().getTime().toString() + ".png";
-        minioClient.fPutObject("photol", fileName, filePath, metaData, function(err, etag) {
+        minioClient.fPutObject("stories", fileName, filePath, metaData, function(err, etag) {
             if (err) { 
                 return res.status(401).send({ message: "Error at saving image data !!!", error: err, errorTag: etag});
             }
