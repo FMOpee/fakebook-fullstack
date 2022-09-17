@@ -23,15 +23,12 @@ console.log("connected minio object storage at: http://" + minioConnect.host + "
 //middleware
 app.use(bodyparser.json());
 app.use(cors({
-    origin: ["*"],
-    preflightContinue :true
+    origin: "*",
+    preflightContinue :false
 }));
-app.use("/userRegistration", userRegistration);
-app.use("/login",login);
-app.use("/userControl",userControl);
-// app.use("/post", postControl);
-
-// app.use("/story",storyController);
+app.use("/user/Registration", userRegistration);
+app.use("/user/login",login);
+app.use("/user/Control",userControl);
 
 
 app.listen(4040, ()=>{

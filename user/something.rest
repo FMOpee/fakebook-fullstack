@@ -1,23 +1,23 @@
 ###  get all user
-GET http://localhost:4040/userRegistration 
+GET http://localhost:8000/user/Registration 
 Content-Type: application/json
 
 ### create user
 
-POST  http://localhost:4040/userRegistration
+POST  http://localhost:8000/user/Registration
 Content-Type: application/json 
 
 {     
     "firstName" : "fm 2",     
     "lastName" : "",     
-    "email" : "abcd",    
+    "email" : "fmkill",    
     "profilePicture" : "https://github.com/FM-Man/fakebook-react/blob/master/public/assets/person/la.jpg?raw=true", 
     "password" : "123456"      
 }
 
 ### login
 
-POST  http://localhost:81/user/login
+POST  http://localhost:8000/user/login
 Content-Type: application/json 
 
 {     
@@ -38,7 +38,7 @@ Content-Type: application/json
 
 ### find one user
 
-GET http://localhost:4000/userControl/62d994fc5548be2051eec09d
+GET http://localhost:8000/user/Control/63257879678a697836eb41e0
 Content-Type: application/json
 
 ### create post

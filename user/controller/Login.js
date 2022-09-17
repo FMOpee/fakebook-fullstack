@@ -12,7 +12,7 @@ const User = require('../models/User');
 //     });
 // });
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         // const {error} = validate(req.body);
         

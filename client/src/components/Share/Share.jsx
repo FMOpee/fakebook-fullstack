@@ -14,9 +14,17 @@ export default function Share() {
         e.preventDefault();
         const content = contentRef.current.value;
         try {
-            await axios.post("http://localhost:81/post/post/",{userID:user._id, content:content}).then((res)=>{
-                console.log(res);
-            });
+            await axios.post(
+                    "http://localhost:8000/post/",
+                    {
+                        userID:user._id, 
+                        content:content
+                    }
+                ).
+                then((res)=>{
+                    console.log(res);
+                }
+            );
         } catch (error) {
             console.log(error);
         }

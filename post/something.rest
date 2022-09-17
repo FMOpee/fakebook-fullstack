@@ -43,7 +43,7 @@
 
 ### create post
 
-Post http://localhost:4020/post/
+Post http://localhost:8000/post/
 Content-Type: application/json
 
 {
@@ -54,7 +54,7 @@ Content-Type: application/json
 
 ### find all post
 
-GET http://localhost:4020/post/
+GET http://localhost:8000/post/
 Content-Type: application/json
 
 ### 
