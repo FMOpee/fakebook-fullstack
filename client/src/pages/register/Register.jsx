@@ -23,7 +23,7 @@ export default function Register() {
 
         try {
             await axios.post(
-                "http://localhost:4000/userRegistration",
+                "http://localhost:4040/userRegistration",
                 {
                     firstName : name,     
                     lastName : "",     

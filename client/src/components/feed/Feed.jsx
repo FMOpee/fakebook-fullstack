@@ -9,7 +9,7 @@ import Stories from '../stories/Stories';
 export default function Feed() {
   const [post, setpost] = useState([]);
   useEffect(()=>{
-    axios.get("http://localhost:4000/post/").then((res)=>{
+    axios.get("http://localhost:4020/post/").then((res)=>{
       const temp = res.data;
       temp.reverse();
       setpost(temp);
