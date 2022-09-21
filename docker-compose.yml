@@ -1,0 +1,54 @@
+version: "3.0"
+
+services:
+
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - postContainer
+      - userContainer
+
+  db-auth:
+    image: mongo:4.0-xenial
+    ports:
+      - 27018:27017
+    volumes:
+      - ./microservice/accountDB:/data/db
+
+
+  db-status:
+    image: mongo:4.0-xenial
+    ports:
+      - 27019:27017
+    volumes:
+      - ./microservice/statusDB:/data/db
+
+  
+  userContainer:
+    image: fmman/usercontainer
+    build: ./user
+    restart: unless-stopped
+    ports:
+      - 4040:4040
+    depends_on:
+      - db-auth
+
+  postContainer:
+    image: fmmman/postcontainer
+    build: ./post
+    restart: unless-stopped
+    ports:
+      - 4020:4020
+    depends_on:
+      - userContainer
+      - db-status
+
+  
+volumes:
+  statusDB:
+  accountDB:
