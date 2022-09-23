@@ -1,6 +1,6 @@
 import "./Share.css";
 import {PermMedia, Label, EmojiEmotions} from "@material-ui/icons"
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useRef } from "react";
 import axios from "axios";

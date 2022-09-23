@@ -2,7 +2,7 @@ import Post from '../Post/Post';
 import Share from '../Share/Share';
 import './Feed.css';
 // import { Posts } from '../../data'; 
-import { useEffect, useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import axios from 'axios';
 import Stories from '../stories/Stories';
 

@@ -1,5 +1,6 @@
 import "./sidebar.css";
 import {RssFeed, People} from "@material-ui/icons";
+import React from "react";
 
 export default function Sidebar() {
   return (
