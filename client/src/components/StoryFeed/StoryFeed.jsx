@@ -9,11 +9,12 @@ export default function StoryFeed() {
   const [story, setstory] = useState([]);
   useEffect(()=>{
     axios.get("http://localhost:8000/story/").then((res)=>{
+    // axios.get("http://localhost:4000/story/").then((res)=>{
       const temp = res.data;
       temp.reverse();
       setstory(temp);
     });
-  },[story])
+  },[])
 
   return (
     <div className='feed'>
@@ -24,9 +25,7 @@ export default function StoryFeed() {
             <Story key={s._id} userID={s.userID} storyID={s.image}/>
           ))}
 
-          {/* <Story/>
-          <Story/> */}
-
+        
         </div>
     </div>
   )

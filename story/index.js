@@ -7,10 +7,6 @@ require("dotenv").config();
 
 const dbConnect = require("./dbconnect");
 const minioConnect = require("./minoConnect");
-// const userRegistration = require("./controller/UserRegistration");
-// const login =require("./controller/Login");
-// const userControl = require("./controller/UserControls");
-// const postControl = require("./controller/PostController");
 const storyController = require("./controller/storyController");
 
 dbConnect();
@@ -30,7 +26,7 @@ app.use(cors({
 // app.use("/login",login);
 // app.use("/userControl",userControl);
 
-console.log("iwanna die")
+// console.log("iwanna die")
 app.use("/story", storyController);
 // app.use("/story",storyController);
 

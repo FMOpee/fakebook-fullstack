@@ -24,7 +24,7 @@ console.log("connected minio object storage at: http://" + minioConnect.host + "
 app.use(bodyparser.json());
 app.use(cors({
     origin: "*",
-    preflightContinue :true
+    preflightContinue :false
 }));
 app.use("/user/Registration", userRegistration);
 app.use("/user/login",login);

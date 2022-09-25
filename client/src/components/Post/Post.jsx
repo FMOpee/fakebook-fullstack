@@ -12,6 +12,7 @@ export default function Post({post}) {
     const [user, setuser] = useState({});
     useEffect(()=>{
         axios.get(`http://localhost:8000/user/Control/${post.userID}`).then((res)=>{
+        // axios.get(`http://localhost:4000/user/Control/${post.userID}`).then((res)=>{
             setuser(res.data);
         });
     },[post.userID]);

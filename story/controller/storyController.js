@@ -50,7 +50,7 @@ router.get("/image/:fileid", (req, res) => {
 
 router.post("/image", upload.single('image'), (req, res) => {
     try { 
-        var filePath = "../../client/src/Files"+ req.file.path;
+        var filePath = "/usr/src/app/"+ req.file.path;
         var fileName = new Date().getTime().toString() + ".png";
         var metaData = {
             'Content-Type': 'application/octet-stream',
@@ -77,6 +77,8 @@ router.post("/image", upload.single('image'), (req, res) => {
 
 router.post("/", (req, res) => {
     try {
+        console.log(req.body.uid);
+        console.log(req.body.image);
         new Story({
             userID  : req.body.uid,
             image   : req.body.filename

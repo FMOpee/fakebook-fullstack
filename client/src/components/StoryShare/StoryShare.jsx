@@ -10,7 +10,6 @@ export default function StoryShare() {
     const [file, setFile] = useState();
 
     const {user} = useContext(AuthContext);
-    // const contentRef = useRef();
 
     const onShare = async (e) =>{
         e.preventDefault();
@@ -18,54 +17,35 @@ export default function StoryShare() {
         const data = new FormData();
         data.append('image', file);
         
-        try {
-            await axios.post(
-                "http://localhost:8000/story/image",
-                data
-            ).
-            then((res)=>{
-                postImageID(res.data);
-            });
-        } catch (error) {
-            console.log(error);
-        }
+        
+        fetch ("http://localhost:8000/story/image", {
+        // fetch ("http://localhost:4000/story/image", {
+            method: "POST",
+            // credentials: "include",
+            body: data
+        }).then(response => response.json()).then(obj => {
+            postImageID(obj.fileId);
+        });
     }
 
     const postImageID = async (storyId) => {
-        try {
-            await axios.post(
-                "http://localhost:8000/story",
-                {
-                    uid: user._id,
-                    filename: storyId
-                }
-            ).
-            then((res)=>{
-                console.log(res);
-            });
-        } catch (error) {
-            console.log(error);
-        }
+        console.log(storyId);
         
-        
-        
-        
-        // fetch("http://local:8000/story/post/story", {
-        //     method: "POST",
-        //     credentials: "include",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         fullName: fullName,
-        //         id: storyId,
-        //         date: new Date().toDateString()
-        //     }),
-        //     }).then(response => response.json()).then(
-        //     obj =>{
-        //     console.log(obj);
-        //     setRenderReel(prev => !prev);
-        // });
+        fetch("http://localhost:8000/story", {
+        // fetch("http://localhost:4000/story", {
+            method: "POST",
+            // credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                uid: user._id,
+                filename: storyId
+            }),
+        }).then(response => response.json()).then(
+            obj =>{
+            console.log(obj);
+        });
     }
 
     return (

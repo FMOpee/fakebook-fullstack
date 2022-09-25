@@ -16,6 +16,7 @@ export default function Share() {
         try {
             await axios.post(
                     "http://localhost:8000/post/",
+                    // "http://localhost:4000/post/",
                     {
                         userID:user._id, 
                         content:content
