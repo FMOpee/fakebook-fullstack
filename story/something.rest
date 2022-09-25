@@ -1,0 +1,77 @@
+# ###  get all user
+# GET http://localhost:4020/userRegistration 
+# Content-Type: application/json
+
+### create user
+
+# POST  http://localhost:4020/userRegistration
+# Content-Type: application/json 
+
+# {     
+#     "firstName" : "Moumita Asad 1111",     
+#     "lastName" : "",     
+#     "email" : "moumita",    
+#     "profilePicture" : "https://github.com/FM-Man/fakebook-react/blob/master/public/assets/person/la.jpg?raw=true", 
+#     "password" : "123456"      
+# }
+
+### login
+
+# POST  http://localhost:4020/login
+# Content-Type: application/json 
+
+# {     
+#     "email" : "moumita",     
+#     "password" : "123456"      
+# }
+
+
+### edit
+
+# PUT http://localhost:4000/userControl/update/62d994fc5548be2051eec09d
+# Content-Type: application/json
+
+# {
+#     "firstName:": "IDK"
+# }
+
+
+### find one user
+
+# GET http://localhost:4020/userControl/62d994fc5548be2051eec09d
+# Content-Type: application/json
+
+### create post
+
+Post http://localhost:8000/post/
+Content-Type: application/json
+
+{
+    "userID": "632573c6a856e17387581f34",
+    "content":"lol",
+    "likes" : 6
+}
+
+### find all post
+
+GET http://localhost:8000/post/
+Content-Type: application/json
+
+### 
+
+# PUT  http://localhost:4000/post/62e55ec5d4d435067b283692
+# Content-Type: application/json
+
+# {
+#     "userID" : "62dc9277f25240da08eb331a"
+# }
+
+
+
+# POST http://localhost:4020/story/image/path 
+# Content-Type: application/json  
+
+# { 
+#     "filePath": "C:\\Users\\User\\OneDrive\\Pictures\\297128339_778831923272751_6849417097836558062_n.jpg", 
+#     "metaData": {  "Content-Type": "application/octet-stream", "X-Amz-Meta-Testing": 1234, "example": 5678, "username": "fahim-iit" }  
+# }

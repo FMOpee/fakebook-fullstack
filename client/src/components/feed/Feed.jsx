@@ -1,10 +1,8 @@
 import Post from '../Post/Post';
 import Share from '../Share/Share';
 import './Feed.css';
-// import { Posts } from '../../data'; 
 import React,{ useEffect, useState } from 'react';
 import axios from 'axios';
-import Stories from '../stories/Stories';
 
 export default function Feed() {
   const [post, setpost] = useState([]);
@@ -20,7 +18,6 @@ export default function Feed() {
     <div className='feed'>
     
         <div className='feedWrapper'>
-          <Stories/>
           <Share/>
           {post.map(p=>(
             <Post key={p._id} post={p}/>

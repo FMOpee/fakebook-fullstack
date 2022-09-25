@@ -12,6 +12,7 @@ services:
     depends_on:
       - postContainer
       - userContainer
+      - storyContainer
 
   db-auth:
     image: mongo:4.0-xenial
@@ -27,6 +28,13 @@ services:
       - 27019:27017
     volumes:
       - ./microservice/statusDB:/data/db
+
+  db-story:
+    image: mongo:4.0-xenial
+    ports:
+      - 27020:27017
+    volumes:
+      - ./microservice/storyDB:/data/db
 
   
   userContainer:
@@ -48,7 +56,17 @@ services:
       - userContainer
       - db-status
 
+  storyContainer:
+    image: fmman/storycontainer
+    build: ./story
+    restart: unless-stopped
+    ports:
+      - 4060:4060
+    depends_on:
+      - db-story
+
   
 volumes:
   statusDB:
   accountDB:
+  storyDB:
