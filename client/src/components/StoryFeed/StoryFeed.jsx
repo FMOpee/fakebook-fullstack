@@ -22,7 +22,7 @@ export default function StoryFeed() {
         <div className='feedWrapper'>
           <StoryShare/>
           {story.map(s=>(
-            <Story key={s._id} userID={s.userID} storyID={s.image}/>
+            <Story key={s._id} userID={s.userID} storyID={s.image} stime={s.createdAt}/>
           ))}
 
         

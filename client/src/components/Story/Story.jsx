@@ -6,7 +6,7 @@ import axios from "axios";
 import {format} from "timeago.js";
 
 
-export default function Story({userID, storyID}) {
+export default function Story({userID, storyID, stime}) {
     
     const [user, setuser] = useState({});
     useEffect(()=>{
@@ -30,7 +30,7 @@ export default function Story({userID, storyID}) {
                     <span className="postUserName">
                         {user.firstName}
                     </span>
-                    <span className="postTime">1 min ago</span>
+                    <span className="postTime">{format(stime)}</span>
                 </div>
                 <div className="postTopRight">
                     <MoreVert/>
