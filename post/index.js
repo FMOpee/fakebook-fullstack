@@ -6,7 +6,7 @@ const minio = require("minio");
 require("dotenv").config();
 
 const dbConnect = require("./dbconnect");
-const minioConnect = require("./minoConnect");
+// const minioConnect = require("./minoConnect");
 // const userRegistration = require("./controller/UserRegistration");
 // const login =require("./controller/Login");
 // const userControl = require("./controller/UserControls");
@@ -17,7 +17,7 @@ dbConnect();
 const app = express();
 
 //checking minio
-console.log("connected minio object storage at: http://" + minioConnect.host + ":" + minioConnect.port);
+// console.log("connected minio object storage at: http://" + minioConnect.host + ":" + minioConnect.port);
 
 
 //middleware
